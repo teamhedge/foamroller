@@ -1,0 +1,197 @@
+body {
+  margin:0;
+  padding:0;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",Helvetica,sans-serif;
+  background:#E5ECF1;
+  color:#263238;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  font-weight:300;
+  line-height: 1.6;
+}
+
+pre {
+  background:#F0F4F9;
+  padding:1rem;
+  border-radius:3px;
+}
+
+.gridExample {
+  background: #C9D9E5;
+  padding:1rem;
+  position:relative;
+}
+
+.gridExample .gridExample {
+  background:#D4E1EA;
+}
+
+.main-header {
+  background:#E91E63;
+  color:white;
+  position:relative;
+  overflow: hidden;
+}
+
+.main-header .gridExample {
+  background:#EC407A;
+  padding:1.5rem;
+}
+
+.main-content {
+  padding:4rem 2rem;
+  position:relative;
+}
+
+.main-header h1 {
+  font-size:3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 2;
+
+}
+
+.main-header h1:after {
+  content: "an easy to use layout system using Flexbox";
+  display:block;
+  font-weight:300;
+  text-transform: lowercase;
+  font-size:1.35rem;
+}
+
+code {
+  font-family: "Roboto Mono", monospace;
+  color:#55798B;
+
+}
+
+.gridExample code {
+  font-size:0.8rem;
+}
+
+h1, h2, h3, h4, h5 {
+  margin:0;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size:2.25rem;
+}
+
+h2 + h3 {
+  margin-top:0.5rem;
+  font-weight:300;
+}
+
+h3 + p {
+  margin-top:0.5em;
+}
+
+[class^=border] {
+  border-width: 1px;
+  border-style: dashed;
+  border-color: #B3C1D2;
+  position:absolute;
+}
+
+.border1.borderTop {
+  top:0.5rem;
+  left:0;
+  right:0;
+}
+.border1.borderRight {
+  right:0.5rem;
+  top:0;
+  bottom:0;
+}
+.border1.borderBottom {
+  bottom:0.5rem;
+  left:0;
+  right:0;
+}
+.border1.borderLeft {
+  left:0.5rem;
+  top:0;
+  bottom:0;
+}
+
+.border2.borderTop {
+  top:1rem;
+  left:0;
+  right:0;
+}
+.border2.borderRight {
+  right:1rem;
+  top:0;
+  bottom:0;
+}
+.border2.borderBottom {
+  bottom:1rem;
+  left:0;
+  right:0;
+}
+.border2.borderLeft {
+  left:1rem;
+  top:0;
+  bottom:0;
+}
+
+.border3.borderTop {
+  top:1.5rem;
+  left:0;
+  right:0;
+}
+.border3.borderRight {
+  right:1.5rem;
+  top:0;
+  bottom:0;
+}
+.border3.borderBottom {
+  bottom:1.5rem;
+  left:0;
+  right:0;
+}
+.border3.borderLeft {
+  left:1.5rem;
+  top:0;
+  bottom:0;
+}
+
+.border4.borderTop {
+  top:2rem;
+  left:0;
+  right:0;
+}
+.border4.borderRight {
+  right:2rem;
+  top:0;
+  bottom:0;
+}
+.border4.borderBottom {
+  bottom:2rem;
+  left:0;
+  right:0;
+}
+.border4.borderLeft {
+  left:2rem;
+  top:0;
+  bottom:0;
+}

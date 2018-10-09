@@ -1,0 +1,79 @@
+<div class="mainContent">
+  <div class="container">
+    <div class="panel">
+      <div class="row">
+        <div class="col-4">
+
+          <%= erb :sidebar %>
+        </div>
+        <div class="col-8">
+          <div class="padding-8">
+            <div class="row paddingBottom-3">
+              <div class="col-8">
+                <h1><%= @feature.name %></h2>
+              </div>
+              <div class="col-4">
+                <div class="actions right">
+                  <a class="button default" href="<%= url_path @feature.name + '/edit' %>">Edit</a>
+                  <a class="button default" href="<%= url_path @feature.name + '/delete' %>">Delete</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="featureDescription featureAttribute">
+              <h2 class="textMuted paddingBottom-1">Description</h2>
+              <p><%= @feature.data['description'] %></p>
+            </div>
+
+            <div class="featureName featureAttribute">
+              <h2 class="textMuted paddingBottom-1">Feature Flag</h2>
+              <code><%= @feature.name %></code>
+            </div>
+
+            <div class="featureGroups featureAttribute">
+              <h2 class="textMuted paddingBottom-1">Groups</h2>
+                <% if @feature.groups.size > 0 %>
+                  <div>
+                    <ul class="groupList">
+                      <% @feature.groups.each do |group| %>
+                        <li><code><%= group %></code></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% else %>
+                  <p>
+                    <small class="textMuted">No groups selected for this feature flag.</small>
+                  </p>
+                <% end %>
+            </div>
+
+            <div class="featureUsers featureAttribute">
+              <h2 class="textMuted paddingBottom-1">Users</h2>
+                <% if @feature.users.size > 0 %>
+                  <div>
+                    <ul class="userIdList">
+                      <% @feature.users.each do |id| %>
+                        <li><%= id %> - <%= settings.users[id] %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% else %>
+                  <p>
+                    <small class="textMuted">No specific users selected for this feature flag.</small>
+                  </p>
+                <% end %>
+              </p>
+            </div>
+
+            <div class="featurePercentage featureAttribute">
+              <h2 class="textMuted paddingBottom-1">Random Percent of Users</h2>
+              <p>
+                <%= @feature.percentage %>
+              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

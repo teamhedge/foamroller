@@ -1,0 +1,229 @@
+/*******************************************
+********************************************
+********************************************
+
+  Dopegrid
+
+  by Mitch Malone
+
+********************************************
+********************************************
+********************************************/
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* Grid Variables */
+
+$containerWidth: 64rem;
+$gutter: 0.5rem;
+$nudge: 0.5em;
+
+
+/* Container */
+
+.container {
+  max-width:$containerWidth;
+  margin:0 auto;
+  position:relative;
+  z-index: 1;
+}
+
+.container:before,
+.container:after {
+    content: "";
+    display: table;
+}
+.container:after {
+    clear: both;
+}
+.container {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/* Grid */
+
+.row {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  margin:0 (-$gutter);
+}
+
+.row:before,
+.row:after {
+    content: "";
+    display: table;
+}
+.row:after {
+    clear: both;
+}
+.row {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+[class^=col-] {
+  position:relative;
+  float:left;
+  min-height: 1px;
+  padding:0 $gutter;
+}
+
+.col-auto {
+  -webkit-box-flex:1;
+  -ms-flex:1;
+  flex:1;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+      width: 100% * ($i/12);
+  }
+}
+
+
+@for $i from 1 through 12 {
+  .col-offset-#{$i} {
+      margin-left: 100% * ($i/12);
+  }
+}
+
+/* Flex helpers */
+
+.display-flex {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+}
+
+.alignItems-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+}
+
+.alignItems-start {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -ms-grid-row-align: flex-start;
+  align-items: flex-start;
+}
+
+.alignItems-end {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  -ms-grid-row-align: flex-end;
+  align-items: flex-end;
+}
+
+.alignItems-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  -ms-grid-row-align: baseline;
+  align-items: baseline;
+}
+
+.justifyContent-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.justifyContent-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.justifyContent-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.justifyContent-around {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.justifyContent-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.flexDirection-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+
+/* Margin helpers */
+
+@for $i from 0 through 12 {
+  .marginBottom-#{$i} {
+      margin-bottom: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .marginTop-#{$i} {
+      margin-top: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .marginRight-#{$i} {
+      margin-right: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .marginLeft-#{$i} {
+      margin-left: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .margin#{$i} {
+      margin: $nudge * $i;
+  }
+}
+
+/* Padding helpers */
+
+@for $i from 0 through 12 {
+  .paddingBottom-#{$i} {
+      padding-bottom: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .paddingTop-#{$i} {
+      padding-top: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .paddingRight-#{$i} {
+      padding-right: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .paddingLeft-#{$i} {
+      padding-left: $nudge * $i;
+  }
+}
+
+@for $i from 0 through 12 {
+  .padding-#{$i} {
+      padding: $nudge * $i;
+  }
+}

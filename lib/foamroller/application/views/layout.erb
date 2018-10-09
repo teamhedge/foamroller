@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Foamroller, Helping You Rollout</title>
+    <script type="text/javascript" src="<%= url_path 'javascripts/application.js' %>"></script>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="<%= url_path 'stylesheets/dopegrid.css' %>">
+    <link rel="stylesheet" href="<%= url_path 'stylesheets/application.css' %>">
+  </head>
+  <body>
+    <div class="mainHeader">
+      <div class="container">
+        <div class="row alignItems-center">
+          <div class="col-auto">
+            <h1 class="logo">FoamRoller</h1>
+          </div>
+          <div class="col-auto textRight">
+            <button class="button primary">New Feature Flag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>

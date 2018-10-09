@@ -1,0 +1,127 @@
+<div class="mainContent">
+  <div class="container">
+
+    <div class="panel padding-8">
+      <div class="row">
+        <div class="col-6 col-offset-3">
+          <form action="<%= url_path 'update_feature_flag' %>" method="post">
+            <fieldset>
+              <div class="formField friendly_name">
+                <div>
+                  <label>Friendly Name</label>
+                </div>
+                <input type="text" name="friendly_name" value="<%= @feature.data['friendly_name'] %>">
+              </div>
+
+              <div class="formField name">
+                <div>
+                  <label>Name</label>
+                </div>
+                <input type="text" name="name" value="<%= @feature.name %>">
+              </div>
+
+              <div class="formField description">
+                <div>
+                  <label>Description</label>
+                </div>
+                <textarea name="description"><%= @feature.data['description'] %></textarea>
+              </div>
+
+              <div class="formField users">
+                <div>
+                  <label>Users</label>
+                </div>
+                <div class="row flexCenter buttonGroup">
+                  <div class="col-8">
+                    <input id="user_input" class="feature_input" feature="user" type="text" list="users">
+                    <datalist id="users">
+                      <% settings.users.each do |id, name| %>
+                        <option value="<%= id %>"><%= name %></option>
+                      <% end %>
+                    </datalist>
+                  </div>
+                  <div class="col-4">
+                    <button class="button default add_btn" feature="user">Add to List</button>
+                  </div>
+                </div>
+                <ul class="selectionList" id="users_container">
+                  <% unless @feature.users.nil? %>
+                    <% @feature.users.each do |id| %>
+                      <li>
+                        <input type="hidden" name="users[]" value="<%= id %>">
+                        <div class="row alignItems-center">
+                          <div class="col-auto">
+                            <code><%= id %> - <%= settings.users[id] %></code>
+                          </div>
+
+                          <div class="paddingRight-1">
+                            <button class="button link clear_feature">&times;</button>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+
+              <div class="formField groups">
+                <div>
+                  <label>Groups</label>
+                </div>
+                <div class="row buttonGroup">
+                  <div class="col-8">
+                    <input id="group_input" class="feature_input" feature="group" type="text" list="groups">
+                    <datalist id="groups">
+                      <% settings.groups.each do |g| %>
+                        <option value="<%= g %>">
+                      <% end %>
+                    </datalist>
+                  </div>
+                  <div class="col-4">
+                    <button class="button default add_btn" feature="group">Add to List</button>
+                  </div>
+                </div>
+
+
+                <ul class="selectionList" id="groups_container">
+                  <% unless @feature.groups.nil? %>
+                    <% @feature.groups.each do |group| %>
+                      <li>
+                        <input type="hidden" name="groups[]" value="<%= group %>">
+                        <div class="row alignItems-center">
+                          <div class="col-auto">
+                            <code><%= group %></code>
+                          </div>
+
+                          <div class="paddingRight-1">
+                            <button class="button link clear_feature">&times;</button>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+
+              <div class="formField percentage">
+                <div>
+                  <label>Percent</label>
+                </div>
+                <div id="percent_value">
+                  <%= @feature.percentage || 0 %>
+                </div>
+                <input id="percentage_input" type="range" min=0 max=100 name="percentage" value=<%= @feature.percentage %>>
+              </div>
+              <input type="submit" class="button primary" value="Save">
+              <a class="button default" href="<%= url_path @feature.name %>">Cancel</a>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var users = <%= settings.users.to_json %>;
+</script>

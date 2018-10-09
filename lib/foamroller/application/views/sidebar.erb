@@ -1,0 +1,7 @@
+<ul class="sidebar">
+  <% @features.each do |f| %>
+    <li class="<%= !@feature.nil? && (f.name.to_s == @feature.name.to_s) ? 'active' : ''%>">
+      <a href="<%= url_path f.name %>"><%= f.name %></a>
+    </li>
+  <% end %>
+</ul>
